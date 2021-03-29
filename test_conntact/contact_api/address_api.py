@@ -22,13 +22,13 @@ class AddressApi(Base):
         :return:
         '''
         create_member_url = f"{self.base_url}/user/create"
-        params = {
+        data = {
             "userid": user_id,
             "name": name,
             "mobile": mobile,
             "department": department
         }
-        r = self.send(1, create_member_url, json=params)
+        r = self.send(1, create_member_url, json=data)
         return r.json()
 
     def get_member(self, userid):
@@ -53,12 +53,12 @@ class AddressApi(Base):
         :return:
         '''
         update_member_url = f"{self.base_url}/user/update"
-        params = {
+        data = {
             "userid": user_id,
             "name": name,
             "mobile": mobile
         }
-        r = self.send(1, update_member_url, json=params)
+        r = self.send(1, update_member_url, json=data)
         return r.json()
 
     def delete_member(self, userid):
